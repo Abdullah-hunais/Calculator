@@ -3,16 +3,16 @@ Afghanistan,7
 Aland Island (Finland),4
 Albania,7
 Algeria,6
-American Samoa ,2
+American Samoa,2
 Andorra,4
 Angola,4
 Anguilla,7
 Antigua and Barbuda,7
 Argentina,7
-Armenia ,7
-Aruba ,7
-Australia ,3
-Austria ,4
+Armenia,7
+Aruba,7
+Australia,3
+Austria,4
 Azerbaijan,7
 Azores (Portugal),4
 Bahamas,7
@@ -32,7 +32,7 @@ Botswana,6
 Brazil,7
 British Virgin Islands,7
 Brunei,1
-Buesingen (Germany) ,4
+Buesingen (Germany),4
 Bulgaria,7
 Burkina Faso,6
 Burundi,6
@@ -40,7 +40,7 @@ Cambodia,7
 Cameroon,6
 Campione/ Lake Lugano (Italy),4
 Canada,5
-Canary Islands (Spain) ,7
+Canary Islands (Spain),7
 Cape Verde,7
 Cayman Islands,7
 Central African Republic,6

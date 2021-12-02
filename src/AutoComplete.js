@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { table, countries, aboveTen, aboveFifteen } from "./Values";
 import "./AutoComplete.css";
+// import pic from "./hola.png";
 
 const AutoComplete = ({ suggestions }) => {
   const [value, setValue] = useState("");
@@ -119,55 +120,61 @@ const AutoComplete = ({ suggestions }) => {
   }
 
   return (
-    <div className="home">
-      Country:
-      <div className="country">
-        <input
-          type="text"
-          onChange={onChange}
-          // onKeyDown={onKeyDown}
-          value={input}
-        />
-        {showSuggestions && input && <SuggestionsListComponent />}
+    <div>
+      <div className="head">
+        <h1>Hola Global Courier Rates</h1>
+        {/* <img src={pic} width="100" height="100" /> */}
       </div>
-      <br />
-      Weight :
-      <div className="weight">
-        <input
-          type="text"
-          onChange={(e) => setWeight(Number(e.target.value))}
-        />
-      </div>
-      <button
-        onClick={(e) => {
-          findPrice(country, weight);
-          hideText();
-        }}
-      >
-        Submit
-      </button>
-      <button onClick={refreshPage}>Clear</button>
-      {/* <button
+      <div className="home">
+        Country:
+        <div className="country">
+          <input
+            type="text"
+            onChange={onChange}
+            // onKeyDown={onKeyDown}
+            value={input}
+          />
+          {showSuggestions && input && <SuggestionsListComponent />}
+        </div>
+        <br />
+        Weight :
+        <div className="weight">
+          <input
+            type="text"
+            onChange={(e) => setWeight(Number(e.target.value))}
+          />
+        </div>
+        <button
+          onClick={(e) => {
+            findPrice(country, weight);
+            hideText();
+          }}
+        >
+          Submit
+        </button>
+        <button onClick={refreshPage}>Clear</button>
+        {/* <button
         onClick={(e) => {
           clearState();
         }}
       >
         Clear
       </button> */}
-      <p>
-        {fuel}
-        {((value * 26) / 100) * 205} {usd}
-      </p>
-      <p>
-        {Profit}
-        {((value * 12) / 100) * 205 + " "}
-        {usd}
-      </p>
-      <p>
-        {cost} {(1 + 38 / 100) * value * 205 + " "}
-        {usd}
-      </p>
-      <p>{value}</p>
+        <p>
+          {fuel}
+          {((value * 26) / 100) * 205} {usd}
+        </p>
+        <p>
+          {Profit}
+          {((value * 12) / 100) * 205 + " "}
+          {usd}
+        </p>
+        <p>
+          {cost} {(1 + 38 / 100) * value * 205 + " "}
+          {usd}
+        </p>
+        <p>{value}</p>
+      </div>
     </div>
   );
 };
