@@ -8,10 +8,10 @@ const AutoComplete = ({ suggestions }) => {
   const [weight, setWeight] = useState(0);
   //asd
   const [usd, setUsd] = useState(" ");
-  const [fuel, setFuel] = useState(" ");
-  const [Profit, setProfit] = useState(" ");
-  const [Charge, setCharge] = useState(" ");
-  const [cost, setCost] = useState(" ");
+  const [fuel, setFuel] = useState("");
+  const [Profit, setProfit] = useState("");
+  const [Charge, setCharge] = useState("");
+  const [cost, setCost] = useState("");
 
   const tableValues = table.split("\n");
   const countryZone = countries.split("\n");
@@ -40,6 +40,12 @@ const AutoComplete = ({ suggestions }) => {
     } else {
       return setValue((aboveFifteen[zone - 1] / 15) * weight);
     }
+  };
+  const hideText = () => {
+    setFuel("Fuel Charge is :");
+    setCost("Charging Amount: ");
+    setProfit("Profit Amount: ");
+    setUsd("LKR");
   };
 
   //up and down (Auto Suggtion)
@@ -112,82 +118,58 @@ const AutoComplete = ({ suggestions }) => {
     window.location.reload(false);
   }
 
-  const onKeyDown = (e) => {
-    // User pressed the enter key
-    if (e.keyCode === 13) {
-      setInput(filteredSuggestions[activeSuggestionIndex]);
-      setActiveSuggestionIndex(0);
-      setShowSuggestions(false);
-    }
-    // User pressed the up arrow
-    else if (e.keyCode === 38) {
-      if (activeSuggestionIndex === 0) {
-        return;
-      }
-
-      setActiveSuggestionIndex(activeSuggestionIndex - 1);
-    }
-    // User pressed the down arrow
-    else if (e.keyCode === 40) {
-      if (activeSuggestionIndex - 1 === filteredSuggestions.length) {
-        return;
-      }
-
-      setActiveSuggestionIndex(activeSuggestionIndex + 1);
-    }
-  };
-
-  const hideText = () => {
-    setFuel("Fuel Charge is :");
-    setCost("Charging Amount: ");
-    setProfit("Profit Amount: ");
-    setUsd("LKR");
-  };
-
   return (
-    <div className="home">
-      Country:
-      <div className="country">
-        <input
-          type="text"
-          onChange={onChange}
-          onKeyDown={onKeyDown}
-          value={input}
-        />
-        {showSuggestions && input && <SuggestionsListComponent />}
-      </div>
-      <br />
-      Weight :
-      <div className="weight">
-        <input
-          type="text"
-          onChange={(e) => setWeight(Number(e.target.value))}
-        />
-      </div>
-      <button
+    <div>
+      <div className="home">
+        Country:
+        <div className="country">
+          <input
+            type="text"
+            onChange={onChange}
+            // onKeyDown={onKeyDown}
+            value={input}
+          />
+          {showSuggestions && input && <SuggestionsListComponent />}
+        </div>
+        <br />
+        Weight :
+        <div className="weight">
+          <input
+            type="text"
+            onChange={(e) => setWeight(Number(e.target.value))}
+          />
+        </div>
+        <button
+          onClick={(e) => {
+            findPrice(country, weight);
+            hideText();
+          }}
+        >
+          Submit
+        </button>
+        <button onClick={refreshPage}>Clear</button>
+        {/* <button
         onClick={(e) => {
-          findPrice(country, weight);
-          hideText();
+          clearState();
         }}
       >
-        Submit
-      </button>
-      <button onClick={refreshPage}>Clear</button>
-      <p>
-        {fuel}
-        {((value * 26) / 100) * 205}
-        {usd}
-      </p>
-      <p>
-        {Profit}
-        {((value * 12) / 100) * 205 + " "}
-        {usd}
-      </p>
-      <p>
-        {cost} {(1 + 38 / 100) * value * 205 + " "}
-        {usd}
-      </p>
-      <p>{value}</p>
+        Clear
+      </button> */}
+        <p>
+          {fuel}
+          {((value * 26) / 100) * 205} {usd}
+        </p>
+        <p>
+          {Profit}
+          {((value * 12) / 100) * 205 + " "}
+          {usd}
+        </p>
+        <p>
+          {cost} {(1 + 38 / 100) * value * 205 + " "}
+          {usd}
+        </p>
+        <p>{value}</p>
+      </div>
     </div>
   );
 };
