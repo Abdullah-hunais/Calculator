@@ -1,0 +1,40 @@
+.App {
+  margin: auto;
+  width: 50%;
+  border: 2px solid rgb(255, 87, 9);
+  padding: 10px;
+}
+
+.AllInputs {
+  padding: 30px;
+}
+input {
+  border: 0;
+  outline: 0;
+  border-bottom: 2px solid #ff00005e;
+  margin-left: 10px;
+}
+
+.country {
+  padding: 1em;
+}
+
+.weight {
+  padding: 1em;
+}
+
+.Answers {
+  text-align: center;
+}
+
+button {
+  margin-left: 10em;
+  background-color: #fd7a00;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
