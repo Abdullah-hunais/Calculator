@@ -142,7 +142,7 @@ const AutoComplete = ({ suggestions }) => {
         Weight :
         <div className="weight">
           <input
-            type="text"
+            type="number"
             onChange={(e) => setWeight(Number(e.target.value))}
           />
         </div>
