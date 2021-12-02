@@ -6,6 +6,10 @@
   transform: translate(-50%, -50%);
 }
 
+#cost {
+  color: red;
+}
+
 .head {
   justify-content: center;
   display: flex;

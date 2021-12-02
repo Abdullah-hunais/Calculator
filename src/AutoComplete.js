@@ -8,6 +8,7 @@ const AutoComplete = ({ suggestions }) => {
   const [country, setCountry] = useState("c");
   const [weight, setWeight] = useState(0);
   //asd
+  const [lkr, setLkr] = useState(" ");
   const [usd, setUsd] = useState(" ");
   const [fuel, setFuel] = useState("");
   const [Profit, setProfit] = useState("");
@@ -43,10 +44,11 @@ const AutoComplete = ({ suggestions }) => {
     }
   };
   const hideText = () => {
-    setFuel("Fuel Charge is :");
-    setCost("Charging Amount: ");
-    setProfit("Profit Amount: ");
-    setUsd("LKR");
+    setFuel(<b>Fuel Charge is :</b>);
+    setCost(<b>Charging Amount: </b>);
+    setProfit(<b>Profit Amount: </b>);
+    setLkr("Rs");
+    setUsd("$");
   };
 
   //up and down (Auto Suggtion)
@@ -161,19 +163,20 @@ const AutoComplete = ({ suggestions }) => {
         Clear
       </button> */}
         <p>
-          {fuel}
-          {((value * 26) / 100) * 205} {usd}
+          {fuel} {lkr + " "}
+          {((value * 26) / 100) * 205}
         </p>
         <p>
-          {Profit}
-          {((value * 12) / 100) * 205 + " "}
-          {usd}
+          {Profit} {lkr + " "}
+          {((value * 12) / 100) * 205}
+        </p>
+        <p id="cost">
+          {cost} {lkr + " "}
+          {(1 + 38 / 100) * value * 205}
         </p>
         <p>
-          {cost} {(1 + 38 / 100) * value * 205 + " "}
-          {usd}
+          {usd + " "} {value}
         </p>
-        <p>{value}</p>
       </div>
     </div>
   );
